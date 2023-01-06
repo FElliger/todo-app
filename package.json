@@ -1,0 +1,29 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "A ToDo app to play around with some things",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Not implemented\" && exit 1",
+    "setup:all": "npm i && (cd backend && npm i) && (cd frontend && npm i) && (cd infra && npm i)",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "dev": "conc \"npm run dev:db\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && OVERRIDE_DDB_ENDPOINT=http://localhost:8000 npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:db": "conc \"docker compose up\" \"./scripts/init_dh.sh\""
+  },
+  "author": "Felix Elliger",
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.47.0",
+    "@typescript-eslint/parser": "^5.47.0",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.30.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "prettier": "^2.8.1",
+    "prettier-plugin-svelte": "^2.9.0",
+    "svelte": "^3.55.0"
+  }
+}

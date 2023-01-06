@@ -1,0 +1,4 @@
+jest.config.js
+dist
+svelte.config.js
+cdk.out

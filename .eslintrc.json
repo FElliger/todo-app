@@ -1,0 +1,22 @@
+{
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "svelte3"
+  ],
+  "root": true,
+  "overrides": [
+	  {
+		  "files": ["**/*.svelte"],
+		  "processor": "svelte3/svelte3"
+	  }
+  ],
+  "settings": {
+    "svelte3/typescript": true
+  },
+  "rules": {
+    "prettier/prettier": "error"
+  } 
+}
