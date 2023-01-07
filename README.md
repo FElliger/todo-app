@@ -5,7 +5,6 @@ This is just another todo list application. It's main purpose is for me to play 
 ## What's in it
 
 At the moment, this is a Svelte front-end backed by what is intended to be an API running on AWS API Gateway + Lambda + DynamoDB. 
-So far this project only supports "local execution" as the infra code is not complete yet - more on that below.
 
 - `backend` - holds the code for Lambda functions + the dev backend
 - `infra` - holds the infrastructure definitions as code. This uses CDK.
@@ -33,6 +32,16 @@ As the API Gateway API is envisioned to have a single "proxy all" resource, the 
 ### Why not AWS SAM Local?
 
 I tried it and I failed. I believe it's due to the ARM architecture of the Chromebook I am mainly using for playing around with this. There was some docker error when I tried launching the Lambda containers. My research brought me to this [SAM issue](https://github.com/aws/aws-sam-cli/issues/3169) from where I concluded that I can't make it work on this machine. 
+
+## How to deploy
+
+To deploy this into an actual AWS account run
+
+```bash
+npm run build:all
+cd cdk
+npm run cdk deploy
+```
 
 ## What I've learned
 
