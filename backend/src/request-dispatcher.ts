@@ -5,8 +5,12 @@ export type ResourceConfig = {
   [key: string]: ResourceHandler
 }
 
-export class RequestDispatcher {
+export class RequestDispatcher implements ResourceHandler {
   constructor(private readonly config: ResourceConfig) {}
+
+  async handle(event: APIGatewayProxyEvent, context: Context): Promise<void | APIGatewayProxyResult> {
+    return this.dispatch(event, context)
+  }
 
   async dispatch(request: APIGatewayProxyEvent, context: Context): Promise<void | APIGatewayProxyResult> {
     const path = request.path
@@ -35,6 +39,11 @@ export class RequestDispatcher {
       "/todos": getTodoHandler(),
     }
 
-    return new RequestDispatcher(routes)
+    const apiDispatcher = new RequestDispatcher(routes)
+
+    return new RequestDispatcher({
+      ...routes,
+      "/api": apiDispatcher,
+    })
   }
 }
