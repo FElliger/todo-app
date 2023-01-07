@@ -8,7 +8,7 @@ export class ToDoStack extends Stack {
     super(scope, id, props)
 
     const apiHandler = new NodejsFunction(this, "ToDoApiHandler", {
-      entry: "../backend/src/requestHandler.ts",
+      entry: "../backend/src/request-handler.ts",
       handler: "handleRequest",
       timeout: Duration.seconds(10),
     })
