@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Not implemented\" && exit 1",
     "setup:all": "npm i && (cd backend && npm i) && (cd frontend && npm i) && (cd infra && npm i)",
+    "build:all": "(cd frontend && npm run build) && (cd infra && npm run cdk synth)",
     "lint:check": "eslint .",
     "lint:fix": "eslint --fix .",
     "dev": "conc \"npm run dev:db\" \"npm run dev:backend\" \"npm run dev:frontend\"",
