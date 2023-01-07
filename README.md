@@ -15,7 +15,7 @@ From a tooling perspective, this uses `eslint` and `prettier` for linting and fo
 
 ## Quick Start
 
-This quick start assumes you have Docker set up with support for docker-compose. It further assumes that you run docker without `sudo`.
+This quick start assumes you have Docker set up with support for docker-compose. It further assumes that you run docker without `sudo`. Lastly, it assumes that your AWS `default` profiles specifies a region or `AWS_REGION` is set as an env var.
 To get going with this application, clone the repo and run
 
 ```bash
